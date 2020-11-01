@@ -1,0 +1,12 @@
+<h1><%= @destination.name %></h1>
+
+<h3>Recent Posts: </h3>
+<ul>
+<% @destination.most_recent_posts.each do |p| %>
+<li><%= p.title %></li>
+<% end %>
+</ul>
+
+<h3>Featured Post: <%= link_to @destination.featured_post.title, @destination.featured_post %></h3>
+
+<p>Thos who have blogged about <%= @destination.name %> are, on average,  <%= @destination.blogger_average_age %> years old</p>

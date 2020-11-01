@@ -1,0 +1,15 @@
+<h1><%= @blogger.name %></h1>
+<h3>Total Likes: <%= @blogger.total_likes %></h3>
+
+<% if !@blogger.posts.empty? %>
+    <h3>Featured post: <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %></h3>
+<% end %>
+
+<h3><%= @blogger.name %>'s most written about destinations:</h3>
+<ul>
+    <% @blogger.most_written_about.each_with_index do |d, index| %>
+        <% if index.even? %>
+        <li><%= link_to d.name, destination_path(d) %></li>
+        <% end %>
+        <% end %>
+</ul>
